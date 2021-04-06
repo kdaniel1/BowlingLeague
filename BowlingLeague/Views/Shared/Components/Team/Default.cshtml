@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Teams>
+<a class="btn btn-block @((string)ViewData["Team"] == null ?"btn-info" : "btn-outline-info")" asp-action="Index" asp-controller="Home" asp-route-teamid="">Home</a>
+<br />
+
+@foreach (var x in Model)
+{
+    <a class="btn btn-block @(x.TeamName == (string)ViewData["Team"] ? "btn-info" : "btn-outline-info")"
+       asp-action="Index" asp-controller="Home"
+       asp-route-teamid="@x.TeamId" asp-route-teamname="@x.TeamName">@x.TeamName</a>
+    <br />
+}
